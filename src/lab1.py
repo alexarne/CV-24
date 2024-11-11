@@ -18,13 +18,21 @@ EXERCISE = 1.3
 
 match EXERCISE:
 	case 1.3:
-		# QUESTION 1:
+		# F = ifft2(Fhat)
+
+		print("===== QUESTION 1 =====")
 		# Repeat this exercise with the coordinates p and q set to (5, 9), (9, 5), (17, 9), (17, 121),
 		# (5, 1) and (125, 1) respectively. What do you observe?
 		for u, v in [(5, 9), (9, 5), (17, 9), (17, 121), (5, 1), (125, 1)]:
 			fftwave(u, v)
 
-		# QUESTION 3:
+		print("===== QUESTION 2 =====")
+		Fhat = np.zeros((128, 128), dtype=complex)
+		Fhat[5, 9] = 1+0j
+		F = fft2(Fhat)
+		showgrey(F)
+
+		print("===== QUESTION 3 =====")
 		# How large is the amplitude? Write down the expression derived from Equation (4) in
 		# these notes. Complement the code (variable amplitude) accordingly
 
