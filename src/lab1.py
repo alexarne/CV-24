@@ -14,7 +14,7 @@ from fftwave import fftwave
 # depending on what you are working on. It should be fairly easy for a TA
 # to go through all parts of your code though.
 
-# EXERCISE = 1.3
+EXERCISE = 1.3
 # EXERCISE = 1.4
 # EXERCISE = 1.5
 # EXERCISE = 1.6
@@ -22,7 +22,7 @@ from fftwave import fftwave
 # EXERCISE = 1.8
 # EXERCISE = 2.3
 # EXERCISE = 3.1
-EXERCISE = 3.2
+# EXERCISE = 3.2
 
 # Fhat = np.zeros((128, 128))
 # for i in range(32):

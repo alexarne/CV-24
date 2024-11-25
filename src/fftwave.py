@@ -27,7 +27,7 @@ def fftwave(u, v, sz = 128):
 		vc = v - sz
 
 	wavelength = sz / np.sqrt(uc**2 + vc**2)  # Replace by correct expression
-	amplitude  = np.abs(F[uc, vc]) # Replace by correct expression
+	amplitude  = 1 / sz # Replace by correct expression
 	
 	a2 = f.add_subplot(3, 2, 2)
 	showgrey(np.fft.fftshift(Fhat), False)
