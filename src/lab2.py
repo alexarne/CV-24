@@ -157,9 +157,9 @@ def houghline(curves, magnitude, nrho, ntheta, threshold, nlines = 20, verbose =
 		for index_theta, theta in enumerate(theta_values):
 			rho = x*np.cos(theta) + y*np.sin(theta)
 			index_rho = (np.abs(rho_values - rho)).argmin()
-			acc[index_rho, index_theta] += 1
+			acc[index_rho, index_theta] += np.log(magnitude[y, x] - threshold) + 1
 
-	# acc = discgaussfft(acc, 5)
+	# acc = discgaussfft(acc, 1)
 	pos, value, _ = locmax8(acc)
 	indexvector = np.argsort(value)[-nlines:]
 	pos = pos[indexvector]
@@ -317,12 +317,23 @@ match EXERCISE:
 		plt.show()
 
 	case 6:
-		testimage1 = np.load("Images-npy/triangle128.npy")
-		smalltest1 = binsubsample(testimage1)
-		testimage2 = np.load("Images-npy/houghtest256.npy")
-		smalltest2 = binsubsample(binsubsample(testimage2))
-		houghedgeline(smalltest1, 1, 5, 100, 100, 5, 2)
-		houghedgeline(testimage1, 1, 5, 100, 100, 5, 2)
-		houghedgeline(smalltest2, 1, 20, 100, 100, 20, 2)
-		houghedgeline(testimage2, 1, 20, 100, 100, 20, 2)
+		# testimage1 = np.load("Images-npy/triangle128.npy")
+		# smalltest1 = binsubsample(testimage1)
+		# testimage2 = np.load("Images-npy/houghtest256.npy")
+		# smalltest2 = binsubsample(binsubsample(testimage2))
+		# # houghedgeline(smalltest1, 1, 5, 100, 100, 5, 2)
+		# houghedgeline(testimage1, 1, 5, 100, 100, 5, 2)
+		# # houghedgeline(smalltest2, 1, 20, 500, 500, 20, 2)
+		# houghedgeline(testimage2, 1, 20, 300, 300, 20, 2)
+
+		img1 = np.load("Images-npy/few256.npy")
+		img2 = np.load("Images-npy/phonecalc256.npy")
+		img3 = np.load("Images-npy/godthem256.npy")
+		houghedgeline(img1, 8, 35, 300, 300, 20, 2)
+		houghedgeline(img2, 2, 45, 500, 500, 20, 2)
+		houghedgeline(img3, 5, 35, 500, 500, 20, 2)
+
+		houghedgeline(img1, 0, 80, 1000, 200, 20, 2)
+		houghedgeline(img2, 2, 30, 800, 100, 20, 2)
+		houghedgeline(img3, 1, 70, 1000, 200, 40, 2)
 
